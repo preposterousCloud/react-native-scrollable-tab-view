@@ -1,7 +1,6 @@
 var React = require('react-native');
 var {
   View,
-  Animated,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -32,10 +31,6 @@ var ScrollableTabBar = React.createClass({
 
   getInitialState: function() {
     this._tabsMeasurements = [];
-    return {
-      _leftTabUnderline: new Animated.Value(0),
-      _widthTabUnderline: new Animated.Value(0),
-    }
   },
 
   updateView(offset) {
@@ -158,7 +153,7 @@ var ScrollableTabBar = React.createClass({
           onLayout={this.onTabContainerLayout}
         >
           {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
-          <Animated.View style={[tabUnderlineStyle, dynamicTabUnderline]} />
+          <View style={[tabUnderlineStyle, dynamicTabUnderline]} />
         </View>
       </ScrollView>
     </View>
